@@ -1,0 +1,19 @@
+{
+  "name": "trent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcline/trent.git"
+  },
+  "author": "Ryan Cline <cline.ryan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcline/trent/issues"
+  },
+  "homepage": "https://github.com/rcline/trent#readme"
+}
