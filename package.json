@@ -1,19 +1,45 @@
 {
-  "name": "trent",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "readme": "README.md",
+  "license": "MIT",
+  "version": "0.0.0",
+  "repository": "put your repo here",
+  "config": {
+    "srcDir": "es6",
+    "mochaOptions": "--recursive",
+    "mochaReport": "--reporter xunit --reporter-options output=$CI_TEST_RESULT_FILE",
+    "istanbulReport": "--dir $CI_TEST_COVERAGE_DIR --report $CI_TEST_COVERAGE_FORMAT"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "exit 0",
+    "start": "node startApp.js",
+    "lint": "eslint ./",
+    "lint:ci": "npm run lint -- --format $CI_LINT_FORMAT --output-file $CI_LINT_OUTPUT_FILE",
+    "shrinkwrap": "npm-shrinkwrap",
+    "jsdoc": "jsdoc -c .jsdoc.json *",
+    "jsdoc:watch": "watch 'npm run jsdoc'",
+    "test": "mocha $npm_package_config_mochaOptions",
+    "test:unit": "npm test test/unit",
+    "test:int": "npm test test/integration",
+    "test:ci": "istanbul cover _mocha -- --recursive $npm_package_config_mochaReport",
+    "test:watch": "npm test -- --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rcline/trent.git"
+  "dependencies": {
+    "lodash": "^3.10.0",
+    "read-yaml": "^1.0.0",
+    "carbon_web": "git+https://github.shuttercorp.net/web-platform/carbon_web.git#v0.1.4"
   },
-  "author": "Ryan Cline <cline.ryan@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rcline/trent/issues"
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "chai": "^3.2.0",
+    "sinon": "^1.15.4",
+    "debug": "^2.2.0",
+    "istanbul": "^0.3.17",
+    "eslint-config-shutterstock": "git+https://github.shuttercorp.net/web-platform/eslint-config-shutterstock.git#master",
+    "npm-shrinkwrap": "^5.4.0",
+    "jsdoc": "^3.3.2",
+    "watch": "^0.16.0"
   },
-  "homepage": "https://github.com/rcline/trent#readme"
+  "name": "trent",
+  "description": "",
+  "author": "Ryan Cline <cline.ryan@gmail.com>"
 }

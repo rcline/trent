@@ -1,0 +1,30 @@
+#this .rock.yml is only here to support existing deployment practices.
+#these practices will be changing soon and we suggest you put as little
+#application logic in this file as possible to ease transisition to future
+#deployment processes
+runtime: node012
+
+env:
+  NODE_ENV: "${ROCK_ENV}"
+  PORT: "${HTTP_PORT}"
+  CI_LINT_FORMAT: "checkstyle"
+  CI_LINT_OUTPUT_FILE: "lint.xml"
+  CI_TEST_RESULT_FILE: "results.xml"
+  CI_TEST_COVERAGE_DIR: "cov"
+  CI_TEST_COVERAGE_FORMAT: "cobertura"
+
+run_web: |
+  npm start
+
+run: |
+  npm start
+
+clean: |
+  npm prune
+
+build: |
+  npm install && npm run build
+
+ci: |
+ npm run lint:ci || :
+ npm run test:ci || :

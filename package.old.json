@@ -1,0 +1,77 @@
+{
+  "name": "trent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcline/trent.git"
+  },
+  "author": "Ryan Cline <cline.ryan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcline/trent/issues"
+  },
+  "homepage": "https://github.com/rcline/trent#readme",
+  "config": {
+    "srcDir": "es6",
+    "lintOptions": {
+      "outputFormat": "stylish",
+      "outputFile": ""
+    },
+    "coverageOptions": {
+      "outputFormat": "html",
+      "outputDir": "cov"
+    },
+    "testOptions": {
+      "outputFormat": "spec",
+      "outputFile": ""
+    }
+  },
+  "scripts": {
+    "build": "",
+    "lint": "eslint ./ --format $npm_package_config_lintOptions_outputFormat --output-file $npm_package_config_lintOptions_outputFile",
+    "test": "mocha --recursive --reporter $npm_package_config_testOptions_outputFormat --reporter-options output=$npm_package_config_testOptions_outputFile --compilers js:babel/register",
+    "test:cover": "babel-node ./node_modules/.bin/isparta cover --dir $npm_package_config_coverageOptions_outputDir --report $npm_package_config_coverageOptions_outputFormat _mocha -- --recursive",
+    "test:watch": "npm test -- --watch",
+    "shrinkwrap": "npm-shrinkwrap",
+    "jsdoc": "jsdoc -c .jsdoc.json $npm_package_config_srcDir",
+    "jsdoc:watch": "watch 'npm run jsdoc' $npm_package_config_srcDir"
+  },
+  "dependencies": {
+    "assetive": "git+https://github.shuttercorp.net/web-platform/assetive.git#master",
+    "body-parser": "^1.13.1",
+    "bootstock": "git+https://github.shuttercorp.net/web-platform/bootstock.git#master",
+    "connect-locale": "^1.2.2",
+    "connect-memcached": "^0.1.0",
+    "connect-visitor-tracking": "git+https://github.shuttercorp.net/shutterstock/node-connect-visitor-tracking.git#v0.3.6",
+    "cookie-parser": "^1.3.5",
+    "debug": "^2.2.0",
+    "express-session": "^1.11.3",
+    "jquery": "^1.11.3",
+    "lodash": "^3.10.1",
+    "nunjucks": "^1.3.4",
+    "bunyan": "^1.4.0",
+    "cached": "^4.0.2",
+    "express": "^4.13.3",
+    "express-bunyan-logger": "^1.1.1",
+    "lodash": "^3.10.1",
+    "newrelic": "^1.21.2",
+    "statsd-client": "^0.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "debug": "^2.2.0",
+    "eslint-plugin-require-jsdoc": "^1.0.4",
+    "isparta": "^3.0.3",
+    "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git#master",
+    "mocha": "^2.2.5",
+    "npm-shrinkwrap": "^5.4.0",
+    "proxyquire": "^1.7.1",
+    "sinon": "^1.15.4",
+    "watch": "^0.16.0"
+  }
+}

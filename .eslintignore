@@ -1,0 +1,8 @@
+// our docs folder
+docs
+
+// our compiled es6 code folder
+dist
+
+// our compiled front end code folder
+assets
